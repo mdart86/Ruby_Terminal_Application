@@ -1,7 +1,8 @@
 require 'yaml'
 
-require_relative ("question_answers.rb")
-require_relative ("scores.rb")
+require_relative ("member.rb")
+# require_relative ("question_answers.rb")
+# require_relative ("scores.rb")
 
 class InvalidMemberDetails < StandardError
 end
@@ -29,7 +30,7 @@ def create_member
     begin
 		validate_details(member_details)
     rescue
-        puts "Please complete all details required, we'll keep then safe for you ;)"
+        puts "Please complete all details required, we'll keep them safe for you ;)"
         return false
 	end
     member = Member.new(member_details)
