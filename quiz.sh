@@ -4,4 +4,4 @@ echo $2
 
 # add gems into installing
 
-ruby index.rb
+ruby index.ruby
