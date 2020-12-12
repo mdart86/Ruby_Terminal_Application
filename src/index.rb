@@ -1,6 +1,6 @@
 require 'yaml'
 
-require_relative ("member.rb")
+require_relative("member.rb")
 # require_relative ("question_answers.rb")
 # require_relative ("scores.rb")
 
