@@ -4,4 +4,5 @@ gem install tty-prompt
 gem install colorize
 gem install bundler
 
-ruby index.rb
+ruby ./src/index.rb
+
