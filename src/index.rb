@@ -1,5 +1,10 @@
+gem 'tty-prompt', '~> 0.23.0'
+gem 'colorize', '~> 0.8.1'
+gem 'bundler', '~> 2.2', '>= 2.2.1'
+
 require 'yaml'
 require_relative ("classes.rb")
+
 
 class InvalidMemberDetails < StandardError
 end
