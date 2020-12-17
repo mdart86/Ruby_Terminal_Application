@@ -11,14 +11,13 @@ else
     print "What is your first name? "
     name = gets.chomp
 end
-puts "Hi there #{name}!"
 
 class InvalidMemberDetails < StandardError
 end
 
 def write_to_file(member_details)
     begin
-        file = File.open("../data/members.yml","a+"){ |file| file.write(member_details.to_yaml)}
+        file = File.open("./data/members.yml","a+"){ |file| file.write(member_details.to_yaml)}
         if file
             puts "Welcome, your details have been saved for next time"
         end
@@ -182,7 +181,7 @@ questions_capital_city_hard = [
 while true
     input_options_array = ["1","2","3","4","5"]
     puts " "
-    puts "Hello, Welcome to the Quiz!"
+    puts "Hello #{name}, Welcome to the Quiz!"
     puts "First things first, Please choose from the following options : "
     puts "Enter (1) to create a new profile"
     puts "Enter (2) to load your existing profile"
