@@ -5,6 +5,9 @@ require "colorize"
 
 require 'yaml'
 require_relative ("classes.rb")
+
+$prompt = TTY::Prompt.new
+
 # ACCESS CODE - END
 
 # COMMAND LINE ARGV START
@@ -15,7 +18,6 @@ else
     name = gets.chomp
 end
 # COMMAND LINE ARGV END
-
 
 class InvalidMemberDetails < StandardError
 end
