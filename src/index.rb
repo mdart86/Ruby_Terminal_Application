@@ -1,20 +1,26 @@
+# ACCESS CODE - START
 require "bundler"
 require "tty-prompt" 
 require "colorize"
 
 require 'yaml'
 require_relative ("classes.rb")
+# ACCESS CODE - END
 
+# COMMAND LINE ARGV START
 if ARGV.length > 0
     name = ARGV[0]
 else 
     print "What is your first name? "
     name = gets.chomp
 end
+# COMMAND LINE ARGV END
+
 
 class InvalidMemberDetails < StandardError
 end
 
+# MEMBER DETAILS METHODS - START
 def write_to_file(member_details)
     begin
         file = File.open("./data/members.yml","a+"){ |file| file.write(member_details.to_yaml)}
@@ -57,18 +63,17 @@ def create_member
     puts member
     write_to_file(member_details)
 end
+# MEMBER DETAILS METHODS - END
 
 # def existing_member
 #     existing_member = member_details
 # end
 
-$prompt = TTY::Prompt.new
-
 # METHODS FOR MENU - START
 def main_menu
     input_options_array = ["1","2","3","4","5"]
     puts " "
-    puts "Hello, Welcome to the Quiz!"
+    puts "Welcome back to the main menu!!"
     puts "First things first, Please choose from the following options : "
     puts "Enter (1) to create a new profile"
     puts "Enter (2) to load your existing profile"
@@ -115,14 +120,16 @@ end
     p3 = "What is the capital city of Japan?\n(A) Tokyo\n(B) Osaka\n(C) Nagoya"
     p4 = "What is the capital city of the USA?\n(A) New York City\n(B) Washington D.C.\n(C) Los Angeles"
     p5 = "What is the capital city of New Zealand?\n(A) Auckland\n(B) Christchurch\n(C) Wellington"
-    
-    questions_capital_city_easy = [
+
+# QUESTIONS ARRAY WITH OBJECTS FOR EASY - START
+questions_capital_city_easy = [
         Capital_City_Easy.new(p1, "B"),
         Capital_City_Easy.new(p2, "C"),
         Capital_City_Easy.new(p3, "A"),
         Capital_City_Easy.new(p4, "B"),
         Capital_City_Easy.new(p5, "C")
     ]
+# QUESTIONS ARRAY WITH OBJECTS FOR EASY - END
 # CAPITAL CITY EASY QUESTIONS AND ANSWERS - END
 
 # CAPITAL CITY MEDIUM QUESTIONS AND ANSWERS - START
@@ -132,6 +139,7 @@ p3 = "What is the capital city of Canada?\n(A) Vancouver\n(B) Toronto\n(C) Ottaw
 p4 = "What is the capital city of Malta?\n(A) Sliema\n(B) Valletta\n(C) Mdina"
 p5 = "What is the capital city of Thailand?\n(A) Phuket\n(B) Chiang Mai\n(C) Bangkok"
 
+# QUESTIONS ARRAY WITH OBJECTS FOR MEDIUM - START
     questions_capital_city_medium = [
         Capital_City_Medium.new(p1, "B"),
         Capital_City_Medium.new(p2, "B"),
@@ -139,6 +147,7 @@ p5 = "What is the capital city of Thailand?\n(A) Phuket\n(B) Chiang Mai\n(C) Ban
         Capital_City_Medium.new(p4, "B"),
         Capital_City_Medium.new(p5, "C")
     ]   
+# QUESTIONS ARRAY WITH OBJECTS FOR MEDIUM - END
 # CAPITAL CITY MEDIUM QUESTIONS AND ANSWERS - END
 
 # CAPITAL CITY HARD QUESTIONS AND ANSWERS - START
@@ -148,6 +157,7 @@ p3 = "What is the capital city of Switzerland?\n(A) Bern\n(B) Geneva\n(C) Zurich
 p4 = "What is the capital city of Morocco?\n(A) Rabat\n(B) Casablanca\n(C) Marrakesh"
 p5 = "What is the capital city of Colombia?\n(A) Cali\n(B) Medellin\n(C) Bogota"
 
+# QUESTIONS ARRAY WITH OBJECTS FOR HARD - START
 questions_capital_city_hard = [
     Capital_City_Hard.new(p1, "B"),
     Capital_City_Hard.new(p2, "B"),
@@ -155,8 +165,8 @@ questions_capital_city_hard = [
     Capital_City_Hard.new(p4, "A"),
     Capital_City_Hard.new(p5, "C")
 ]
+# QUESTIONS ARRAY WITH OBJECTS FOR HARD - END
 # CAPITAL CITY HARD QUESTIONS AND ANSWERS - END
-
     def run_test(questions_capital)
         answer = ""
         score = 0
@@ -168,20 +178,19 @@ questions_capital_city_hard = [
             puts "The correct answer is: #{question.answer}"
             if answer == question.answer
                 score += 1
-                puts "You have answered correctly!"
+                puts "You have answered correctly!".green
             else
-                puts "Better luck next time!"
+                puts "Better luck next time!".red
             end
             puts " "
         end
         puts "You got" " " + score.to_s + "/" + questions_capital.length().to_s
     end
 
-
 while true
     input_options_array = ["1","2","3","4","5"]
     puts " "
-    puts "Hello #{name}, Welcome to the Quiz App, one moment please...!"
+    puts "Hello #{name}, Welcome to the Quiz App, one moment please...!".blue
     sleep(0.5)
     puts " "
     puts "Enter (1) to create a new profile"
@@ -308,8 +317,6 @@ while true
                         puts "Loading Capital City Quiz Scores"
                         sleep(1)
                         puts "Your score for the EASY quiz is: " + $score_cc_easy.length + "/ 5" 
-                        # puts "Your score for the MEDIUM quiz is: " $score_cc_medium "/ 5"   
-                        # puts "Your score for the HARD quiz is: " $score_cc_hard "/ 5" 
                         if input_option == "4"
                             main_menu
                         end
@@ -324,10 +331,27 @@ while true
                 end # end of case statement
             end # End of while loop
         when "5"
-            puts "Exiting from the Quiz App ..."
+            puts "Exiting from the Quiz App, Goodbye! Please come back!!".yellow
             break
         else
             puts "Please choose from the options 1,2,3,4 OR 5"
             next
     end # end of case statement
 end # End of while loop
+
+
+# TO LIST
+# Acces member on return to App
+
+
+# Add extra quizes - look at making an array of hashes
+# create a score menu 
+
+# FIX TTY PROMPT
+
+# Update if quiz is retaken
+
+# DONE LIST
+# Sleep after each input
+
+# Put correct or incorrect when user gives answer
