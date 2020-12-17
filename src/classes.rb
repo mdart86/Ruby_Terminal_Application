@@ -48,5 +48,4 @@ class Capital_City_Hard
         @answer = answer 
     end
 end
-
 # CAPITAL CITY HARD CLASS END

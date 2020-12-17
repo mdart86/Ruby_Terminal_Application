@@ -1,10 +1,17 @@
-gem 'tty-prompt', '~> 0.23.0'
-gem 'colorize', '~> 0.8.1'
-gem 'bundler', '~> 2.2', '>= 2.2.1'
+require "bundler"
+require "colorize"
+require "tty-prompt" 
 
 require 'yaml'
 require_relative ("classes.rb")
 
+if ARGV.length > 0
+    name = ARGV[0]
+else 
+    print "What is your first name? "
+    name = gets.chomp
+end
+puts "Hi there #{name}!"
 
 class InvalidMemberDetails < StandardError
 end
@@ -23,7 +30,7 @@ end
 
 def get_details
     member_details = Hash.new{0}
-	print "What is your first name: "
+	print "Please retype your first name: "
 	member_details[:first_name] = gets.strip
     print "What is your last name: "
     member_details[:last_name] = gets.strip    
@@ -56,8 +63,12 @@ end
 #     existing_member = member_details
 # end
 
+$prompt = TTY::Prompt.new
+
+# METHODS FOR MENU - START
 def main_menu
     input_options_array = ["1","2","3","4","5"]
+    puts " "
     puts "Hello, Welcome to the Quiz!"
     puts "First things first, Please choose from the following options : "
     puts "Enter (1) to create a new profile"
@@ -68,16 +79,19 @@ def main_menu
 end
 
 def quiz_menu
-    input_options_array_quiz = ["1","2","3","4"]
+    input_options_array_quiz = ["1","2","3","4","5"]
+    puts " "
     puts "You are now in the quiz menu! Please select your quiz"
     puts "Enter (1) To Look at the Capital City Quizzes"
     puts "Enter (2) To Look at the Countries Quizzes"
     puts "Enter (3) To Look at the Geography Quizzes"
-    puts "Press (4) to Back to Main Menu"
+    puts "Enter (4) to go to the Scores Menu"
+    puts "Enter (5) to Back to Main Menu"
 end
 
 def capital_city_menu
     input_options_array_capital_city = ["1","2","3","4","5"]
+    puts " "
     puts "You are now in the Capital City menu! Please select your quiz"
     puts "Enter (1) to try the EASY quiz"
     puts "Enter (2) to try the MEDIUM quiz"
@@ -87,14 +101,16 @@ end
 
 def score_menu
     input_options_array_quiz = ["1","2","3","4"]
+    puts " "
     puts "You are now in the quiz menu! Please select your quiz"
     puts "Enter (1) to show your Capital Cities Quiz scores"
     puts "Enter (2) to show your Countries Quiz scores"
     puts "Enter (3) to show your Geography Quiz scores"
     puts "Press (4) to Back to Main Menu"
 end
+# METHODS FOR MENU - END
 
-# CAPITAL CITY EASY QUESTIONS ANSWER AND METHOD START
+# CAPITAL CITY EASY QUESTIONS AND ANSWERS - START
     p1 = "What is the capital city of Australia?\n(A) Sydney\n(B) Canberra\n(C) Melbourne"
     p2 = "What is the capital city of France?\n(A) Nice\n(B) Lyon\n(C) Paris"
     p3 = "What is the capital city of Japan?\n(A) Tokyo\n(B) Osaka\n(C) Nagoya"
@@ -108,53 +124,25 @@ end
         Capital_City_Easy.new(p4, "B"),
         Capital_City_Easy.new(p5, "C")
     ]
+# CAPITAL CITY EASY QUESTIONS AND ANSWERS - END
 
-    def run_test(questions_capital_city_easy)
-        answer = ""
-        score = 0
-        for question in questions_capital_city_easy
-            puts question.prompt
-            answer = gets.chomp()
-            if answer.upcase! == question.answer
-                score += 1
-            end
-            puts "You got" " " + score.to_s + "/" + questions_capital_city_easy.length().to_s
-            $score_cc_easy = []
-            $score_cc_easy < score
-        end       
-    end
-# CAPITAL CITY EASY QUESTIONS ANSWER AND METHOD START
-
-# CAPITAL CITY MEDIUM QUESTIONS ANSWER AND METHOD START
+# CAPITAL CITY MEDIUM QUESTIONS AND ANSWERS - START
 p1 = "What is the capital city of Italy?\n(A) Milan\n(B) Rome\n(C) Venice"
 p2 = "What is the capital city of China?\n(A) Shanghai\n(B) Beijing\n(C) Hong Kong"
 p3 = "What is the capital city of Canada?\n(A) Vancouver\n(B) Toronto\n(C) Ottawa"
 p4 = "What is the capital city of Malta?\n(A) Sliema\n(B) Valletta\n(C) Mdina"
 p5 = "What is the capital city of Thailand?\n(A) Phuket\n(B) Chiang Mai\n(C) Bangkok"
 
-questions_capital_city_medium = [
-    Capital_City_Medium.new(p1, "B"),
-    Capital_City_Medium.new(p2, "B"),
-    Capital_City_Medium.new(p3, "C"),
-    Capital_City_Medium.new(p4, "B"),
-    Capital_City_Medium.new(p5, "C")
-]
+    questions_capital_city_medium = [
+        Capital_City_Medium.new(p1, "B"),
+        Capital_City_Medium.new(p2, "B"),
+        Capital_City_Medium.new(p3, "C"),
+        Capital_City_Medium.new(p4, "B"),
+        Capital_City_Medium.new(p5, "C")
+    ]   
+# CAPITAL CITY MEDIUM QUESTIONS AND ANSWERS - END
 
-    def run_test(questions_capital_city_medium)
-        answer = ""
-        score = 0
-        for question in questions_capital_city_medium
-            puts question.prompt
-            answer = gets.chomp()
-            if answer.upcase! == question.answer
-                score += 1
-            end
-        end
-        puts "You got" " " + score.to_s + "/" + questions_capital_city_medium.length().to_s
-    end
-# CAPITAL CITY MEDIUM QUESTIONS ANSWER AND METHOD END
-
-# CAPITAL CITY HARD QUESTIONS ANSWER AND METHOD START
+# CAPITAL CITY HARD QUESTIONS AND ANSWERS - START
 p1 = "What is the capital city of Turkey?\n(A) Istanbul\n(B) Ankara\n(C) Alanya"
 p2 = "What is the capital city of Brazil?\n(A) Sao Paulo\n(B) Brasilia\n(C) Rio De Janeiro"
 p3 = "What is the capital city of Switzerland?\n(A) Bern\n(B) Geneva\n(C) Zurich"
@@ -168,23 +156,32 @@ questions_capital_city_hard = [
     Capital_City_Hard.new(p4, "A"),
     Capital_City_Hard.new(p5, "C")
 ]
+# CAPITAL CITY HARD QUESTIONS AND ANSWERS - END
 
-    def run_test(questions_capital_city_hard)
+    def run_test(questions_capital)
         answer = ""
         score = 0
-        for question in questions_capital_city_hard
+        for question in questions_capital
             puts question.prompt
-            answer = gets.chomp()
-            if answer.upcase! == question.answer
+            answer = gets.chomp.upcase
+            puts " "
+            puts "You've answered: #{answer}"
+            puts "The correct answer is: #{question.answer}"
+            if answer == question.answer
                 score += 1
+                puts "You have answered correctly!"
+            else
+                puts "Better luck next time!"
             end
+            puts " "
         end
-        puts "You got" " " + score.to_s + "/" + questions_capital_city_hard.length().to_s
+        puts "You got" " " + score.to_s + "/" + questions_capital.length().to_s
     end
-# CAPITAL CITY HARD QUESTIONS ANSWER AND METHOD END
+
 
 while true
     input_options_array = ["1","2","3","4","5"]
+    puts " "
     puts "Hello, Welcome to the Quiz!"
     puts "First things first, Please choose from the following options : "
     puts "Enter (1) to create a new profile"
@@ -211,12 +208,14 @@ while true
             puts "Going to the quiz menu"
             sleep(1)
             while true
-                input_options_array_quiz = ["1","2","3","4"]
+                input_options_array_quiz = ["1","2","3","4", "5"]
+                puts " "
                 puts "You are now in the quiz menu! Please select your quiz"
                 puts "Enter (1) To Look at the Capital City Quizzes"
                 puts "Enter (2) To Look at the Countries Quizzes"
                 puts "Enter (3) To Look at the Geography Quizzes"
-                puts "Press (4) to Back to Main Menu"
+                puts "Enter (4) to go to the Scores Menu"
+                puts "Enter (5) to Back to Main Menu"
                 input_option = gets.strip
                 if !input_options_array_quiz.include?(input_option)
                     puts "Expecting an input of: 1,2,3 OR 4"
@@ -228,6 +227,7 @@ while true
                     sleep(1)
                         while true
                             input_options_array_capital_city = ["1","2","3","4"]
+                            puts " "
                             puts "Welcome to the Capital City Quiz Menu! Please select the quiz level you want to do"
                             puts "Enter (1) to try the EASY quiz"
                             puts "Enter (2) to try the MEDIUM quiz"
@@ -247,7 +247,6 @@ while true
                             sleep(1)
                             puts "Returning back to the Capital City Quiz Menu..."
                             sleep(1)
-                            # figure out why I can't use methods across pages
                         when "2"
                             puts "Loading the MEDIUM capital city quiz!"
                             run_test(questions_capital_city_medium)
@@ -256,7 +255,6 @@ while true
                             sleep(1)
                             puts "Returning back to the Capital City Quiz Menu..."
                             sleep(1)
-                            # figure out why I can't use methods across pages
                         when "3"
                             puts "Loading the HARD capital city quiz!"
                             run_test(questions_capital_city_hard)
@@ -265,7 +263,6 @@ while true
                             sleep(1)
                             puts "Returning back to the Capital City Quiz Menu..."
                             sleep(1)
-                            # figure out why I can't use methods across pages
                         when "4"
                             puts "Returning to the quiz menu"
                             sleep(1)
@@ -280,6 +277,10 @@ while true
                     puts "Undefined option"   
                     # add code to option 
                 when "4"
+                    puts "Going to the scores menu"
+                    sleep(1)
+                    score_menu
+                when "5"
                     puts "Going back to main menu"
                     main_menu
                 break
@@ -290,6 +291,7 @@ while true
             sleep(1)
                 while true
                 input_options_array_quiz = ["1","2","3","4"]
+                puts " "
                 puts "You are now in the quiz menu! Please select your quiz"
                 puts "Enter (1) to show your Capital Cities Quiz scores"
                 puts "Enter (2) to show your Countries Quiz scores"
@@ -304,7 +306,7 @@ while true
                     when "1"
                         puts "Loading Capital City Quiz Scores"
                         sleep(1)
-                        puts "Your score for the EASY quiz is: " + $score_cc_easy.to_s + "/ 5" 
+                        puts "Your score for the EASY quiz is: " + $score_cc_easy.length + "/ 5" 
                         # puts "Your score for the MEDIUM quiz is: " $score_cc_medium "/ 5"   
                         # puts "Your score for the HARD quiz is: " $score_cc_hard "/ 5" 
                         if input_option == "4"
