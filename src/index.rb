@@ -1,6 +1,6 @@
 require "bundler"
-require "colorize"
 require "tty-prompt" 
+require "colorize"
 
 require 'yaml'
 require_relative ("classes.rb")

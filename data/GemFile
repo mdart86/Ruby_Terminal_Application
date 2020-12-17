@@ -1,0 +1,10 @@
+source "https://rubygems.org"
+
+gem 'bundler', '~> 2.2', '>= 2.2.1'
+git_source(:github) {|repo_name| "https://github.com/rubygems/rubygems/#{rubygems/rubygems/}" }
+
+gem 'tty-prompt', '~> 0.23.0'
+git_source(:github) {|repo_name| "https://github.com/piotrmurach/tty-prompt#{piotrmurach/tty-promptt}" }
+
+gem 'colorize', '~> 0.8.1'
+git_source(:github) {|repo_name| "https://github.com/fazibear/colorize/#{fazibear/colorize}" }
