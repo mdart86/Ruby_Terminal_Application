@@ -181,13 +181,15 @@ questions_capital_city_hard = [
 while true
     input_options_array = ["1","2","3","4","5"]
     puts " "
-    puts "Hello #{name}, Welcome to the Quiz!"
-    puts "First things first, Please choose from the following options : "
+    puts "Hello #{name}, Welcome to the Quiz App, one moment please...!"
+    sleep(0.5)
+    puts " "
     puts "Enter (1) to create a new profile"
     puts "Enter (2) to load your existing profile"
     puts "Enter (3) to go to quiz menu"
     puts "Press (4) to show your answers and score"
     puts "Press (5) to exit"
+    print "Please choose from one of the above options: "
     input_option = gets.strip 
     # This is the simplest form of error handling using an if statement where we are not explicitly using any begin-rescue-end block
     if !input_options_array.include?(input_option)
