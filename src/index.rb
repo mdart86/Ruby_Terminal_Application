@@ -19,6 +19,8 @@ else
 end
 # COMMAND LINE ARGV END
 
+puts "Hello #{name}, you're in!! Loading a menu...!".blue
+
 class InvalidMemberDetails < StandardError
 end
 
@@ -75,13 +77,12 @@ end
 def main_menu
     input_options_array = ["1","2","3","4","5"]
     puts " "
-    puts "Welcome back to the main menu!!"
-    puts "First things first, Please choose from the following options : "
     puts "Enter (1) to create a new profile"
     puts "Enter (2) to load your existing profile"
     puts "Enter (3) to go to quiz menu"
     puts "Press (4) to show your answers and score"
     puts "Press (5) to exit"
+    print "Please choose from one of the above options: "
 end
 
 def quiz_menu
@@ -192,7 +193,6 @@ questions_capital_city_hard = [
 while true
     input_options_array = ["1","2","3","4","5"]
     puts " "
-    puts "Hello #{name}, Welcome to the Quiz App, one moment please...!".blue
     sleep(0.5)
     puts " "
     puts "Enter (1) to create a new profile"
