@@ -38,15 +38,19 @@ An Exit option, located in the main menu will allow the user to exit the Quiz Ap
 <br>
 
 ## R6 - Three Features of the application
-### Feature 1 - Menu
-A series of menus have been created to help guide the user to all parts of the app. The menu options have been placed inside an array with a ''puts statement" guiding the user to select the option of their choice. 
+### Feature 1 - Script, Enter Greeting and Main Menu
+As you enter the app, once your script is run, you will notice that all Ruby Gems required to run the app will be installed via your script. This is great to ensure that the scope of the app is wide spread to capture every audience, even the ones who don't have the Gems installed on their particular local computer.
+
+Via the script, the user is immediately asked their name and that name is stored in a variable for future use when needed.
 
 Upon entry into the app, the user will be greeted with a message and main menu, from the main menu they will be able to create their profile, load an existing profile, go to the quiz area and scores area to list their scores.
+
+### Feature 2 - Link to another menu
+Within the app, a future feature is to be creating to allow the user to access their existing profile including completed quizzes. This will retrieve the data stored in a separate YAML file. This can be done by a method of its own with access to the class of the members.
 
 ### Feature 2 - Create Profile
 The user will have the option to create their own profile based on a series of questions with have been encased in a method, this will help individually identify each user via the attributes that have been stored in a class
 
-### Feature 3 - Loading Existing Profile 
-Within the app, a future feature is to be creating to allow the user to access their existing profile including completed quizzes. This will retrieve the data stored in a separate YAML file. This can be done by a method of its own with access to the class of the members.
+
 
 

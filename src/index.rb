@@ -3,7 +3,6 @@ require "bundler"
 require "tty-prompt" 
 require "colorize"
 require "tty-font"
-require "pastel"
 
 require 'yaml'
 require_relative ("classes.rb")
@@ -81,44 +80,18 @@ end
 # METHODS FOR MENU - START
 def main_menu
     input_options_array = ["1","2","3","4","5"]
-    puts " "
-    puts "Enter (1) to create a new profile"
-    puts "Enter (2) to load your existing profile"
-    puts "Enter (3) to go to quiz menu"
-    puts "Press (4) to show your answers and score"
-    puts "Press (5) to exit"
-    print "Please choose from one of the above options: "
 end
 
 def quiz_menu
     input_options_array_quiz = ["1","2","3","4","5"]
-    puts " "
-    puts "You are now in the quiz menu! Please select your quiz"
-    puts "Enter (1) To Look at the Capital City Quizzes"
-    puts "Enter (2) To Look at the Countries Quizzes"
-    puts "Enter (3) To Look at the Geography Quizzes"
-    puts "Enter (4) to go to the Scores Menu"
-    puts "Enter (5) to Back to Main Menu"
 end
 
 def capital_city_menu
     input_options_array_capital_city = ["1","2","3","4","5"]
-    puts " "
-    puts "You are now in the Capital City menu! Please select your quiz"
-    puts "Enter (1) to try the EASY quiz"
-    puts "Enter (2) to try the MEDIUM quiz"
-    puts "Enter (3) to try the HARD quiz"
-    puts "Press (4) to go back to the Quiz Menu"
 end
 
 def score_menu
     input_options_array_score = ["1","2","3","4"]
-    puts " "
-    puts "You are now in the quiz menu! Please select your quiz"
-    puts "Enter (1) to show your Capital Cities Quiz scores"
-    puts "Enter (2) to show your Countries Quiz scores"
-    puts "Enter (3) to show your Geography Quiz scores"
-    puts "Press (4) to Back to Main Menu"
 end
 # METHODS FOR MENU - END
 
@@ -197,6 +170,7 @@ questions_capital_city_hard = [
 
 while true
     input_options_array = ["1","2","3","4","5"]
+    puts "*** MAIN MENU ***"
     puts "Enter (1) to create a new profile"
     puts "Enter (2) to load your existing profile"
     puts "Enter (3) to go to quiz menu"
@@ -206,12 +180,12 @@ while true
     input_option = gets.strip 
     # This is the simplest form of error handling using an if statement where we are not explicitly using any begin-rescue-end block
     if !input_options_array.include?(input_option)
-        puts "Expecting an input of: 1,2,3,4 OR 5"
+        puts "Expecting an input of: 1, 2, 3, 4 OR 5"
         next
     end
     case input_option
         when "1"
-            puts "Let's get started and create a new profile for you!"
+            puts "Great, #{name}! Let's get started and create a new profile for you!"
             sleep(1)
             create_member     
         when "2"
@@ -219,67 +193,77 @@ while true
             puts "Loading your profile..."
             # existing_member
         when "3"
-            puts "Going to the quiz menu"
+            puts "Yay #{name}! You're going to the quiz menu"
             sleep(1)
+            system("clear")
             while true
                 input_options_array_quiz = ["1","2","3","4", "5"]
-                puts " "
-                puts "You are now in the quiz menu! Please select your quiz"
+                puts "*** QUIZ MENU ***"
                 puts "Enter (1) To Look at the Capital City Quizzes"
                 puts "Enter (2) To Look at the Countries Quizzes"
                 puts "Enter (3) To Look at the Geography Quizzes"
                 puts "Enter (4) to go to the Scores Menu"
                 puts "Enter (5) to Back to Main Menu"
+                print "You are now in the quiz menu! Please select your quiz category: "
                 input_option = gets.strip
                 if !input_options_array_quiz.include?(input_option)
-                    puts "Expecting an input of: 1,2,3,4 OR 5"
+                    puts "Expecting an input of: 1, 2, 3, 4 OR 5"
                     next
                 end
                 case input_option
                 when "1"
-                    puts "Loading the Capital City Quizzes"
+                    puts "Loading the Capital City Quizzes, we will be right with you #{name}"
                     sleep(1)
+                    system("clear")
                         while true
                             input_options_array_capital_city = ["1","2","3","4"]
-                            puts " "
-                            puts "Welcome to the Capital City Quiz Menu! Please select the quiz level you want to do"
+                            puts "*** CAPITAL CITY QUIZ MENU ***"
                             puts "Enter (1) to try the EASY quiz"
                             puts "Enter (2) to try the MEDIUM quiz"
                             puts "Enter (3) to try the HARD quiz"
                             puts "Press (4) to go back to the Quiz Menu"
+                            print "Please select the quiz level you want to take: "
                             input_option = gets.strip
                             if !input_options_array_capital_city.include?(input_option)
-                                puts "Expecting an input of: 1,2,3 OR 4"
+                                puts "Expecting an input of: 1, 2, 3 OR 4"
                                 next
                             end
                         case input_option
                         when "1"
-                            puts "Loading the EASY capital city quiz!"
+                            puts "Loading the EASY capital city quiz! Sometimes, #{name} it's great to start at the easiest level!"
                             run_test(questions_capital_city_easy)
                             sleep(0.5)
                             puts "Saving your score, check out the scores menu to see"
                             sleep(1)
-                            puts "Returning back to the Capital City Quiz Menu..."
+                            puts " "
+                            puts "Returning back to the Capital City Quiz Menu now #{name}! One moment..."
                             sleep(1)
+                            system("clear")
                         when "2"
-                            puts "Loading the MEDIUM capital city quiz!"
+                            puts "Time try a more callenging quiz #{name}! Loading the MEDIUM capital city quiz!"
                             run_test(questions_capital_city_medium)
                             sleep(0.5)
                             puts "Saving your score, check out the scores menu to see"
                             sleep(1)
-                            puts "Returning back to the Capital City Quiz Menu..."
+                            puts " "
+                            puts "Returning back to the Capital City Quiz Menu now #{name}! One moment..."
                             sleep(1)
+                            system("clear")
                         when "3"
-                            puts "Loading the HARD capital city quiz!"
+                            puts "Alright! Let's go for it! Good luck #{name}! Loading the HARD capital city quiz!"
                             run_test(questions_capital_city_hard)
                             sleep(0.5)
                             puts "Saving your score, check out the scores menu to see"
                             sleep(1)
-                            puts "Returning back to the Capital City Quiz Menu..."
+                            puts " "
+                            puts "Returning back to the Capital City Quiz Menu now #{name}! One moment..."
                             sleep(1)
+                            system("clear")
                         when "4"
-                            puts "Returning to the quiz menu"
+                            puts "Well done for trying out these quizzes #{name}! Returning to the quiz menu"
                             sleep(1)
+                            system("clear")
+                            puts "*** QUIZ MENU ***"
                             quiz_menu
                         break
                         end # end of case statement
@@ -293,9 +277,12 @@ while true
                 when "4"
                     puts "Going to the scores menu"
                     sleep(1)
+                    system("clear")
                     score_menu
                 when "5"
                     puts "Going back to main menu"
+                    sleep(1)
+                    system("clear")
                     main_menu
                 break
                 end # end of case statement
@@ -303,10 +290,10 @@ while true
         when "4"
             puts "Loading the score menu"
             sleep(1)
+            system("clear")
                 while true
                 input_options_array_score = ["1","2","3","4"]
-                puts " "
-                puts "You are now in the quiz menu! Please select your quiz"
+                puts "So #{name}, you've completed some quizzes, why don't you see how well you've done!"
                 puts "Enter (1) to show your Capital Cities Quiz scores"
                 puts "Enter (2) to show your Countries Quiz scores"
                 puts "Enter (3) to show your Geography Quiz scores"
@@ -330,6 +317,8 @@ while true
                         puts "Loading Geography Quiz Scores"   
                     when "4"
                     puts "Going back to main menu"
+                    sleep(1)
+                    system("clear")
                     main_menu
                 break
                 end # end of case statement
@@ -352,7 +341,6 @@ end # End of while loop
 # create a score menu 
 
 # FIX TTY PROMPT
-
 # Update if quiz is retaken
 
 # DONE LIST

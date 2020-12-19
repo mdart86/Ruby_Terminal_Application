@@ -5,6 +5,5 @@ gem install bundler -v 2.2.1
 gem install tty-prompt -v 0.23.0
 gem install colorize -v 0.8.1
 gem install tty-font
-gem install pastel
 bundle init
 ruby ./src/index.rb 
