@@ -177,7 +177,6 @@ puts font.write("QUIZ APP", letter_spacing: 3)
 
 while true
     input_options_array = ["1","2","3","4","5"]
-    puts "*** MAIN MENU ***"
     puts "Enter (1) to create a new profile"
     puts "Enter (2) to load your existing profile"
     puts "Enter (3) to go to quiz menu"
@@ -205,8 +204,7 @@ while true
             system("clear")
             while true
                 input_options_array_quiz = ["1","2","3","4", "5"]
-                puts font.write("QUIZ APP")
-                puts "*** QUIZ MENU ***"
+                puts font.write("QUIZ MENU")
                 puts "Enter (1) To Look at the Capital City Quizzes"
                 puts "Enter (2) To Look at the Countries Quizzes"
                 puts "Enter (3) To Look at the Geography Quizzes"
