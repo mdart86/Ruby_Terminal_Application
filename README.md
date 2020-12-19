@@ -1,7 +1,7 @@
 # MICHAEL DART - T1A3 - Terminal Application
 
 ## Introduction
-Welcome to the READMe document with relation to the application I have created
+Welcome to the READMe document that covers the Quiz Application I have created.
 <br>
 <br>
 
@@ -17,6 +17,8 @@ Please view my source control via GitHub:
 [MichaelDaart_T1A3](https://github.com/mdart86/MichaelDart_T1A3)
 <br>
 <br>
+
+## **THE SOFTWARE DEVELOPMENT PLAN**
 
 ## R5 - Purpose and Scope of the application
 The Quiz App application I have created is a fun and easy for users to expand their knowledge through a series of multiple choice questions in an interactive way targeting any person who has an interest in learning about a particular topic.
@@ -36,20 +38,46 @@ One feature the user will notice is the ability to access the stored scores menu
 
 An Exit option, located in the main menu will allow the user to exit the Quiz App, with their completed quizzes and scores saved for their return.
 <br>
+<br>
+<br>
 
 ## R6 - Three Features of the application
-### Feature 1 - Script, Enter Greeting and Main Menu
-As you enter the app, once your script is run, you will notice that all Ruby Gems required to run the app will be installed via your script. This is great to ensure that the scope of the app is wide spread to capture every audience, even the ones who don't have the Gems installed on their particular local computer.
+### Feature 1 - Menu Options - *Loops and Case Statements*
+A key feature to the app is the multi level menu. This feature forms the back bone of the app to guide the user through every part of the app also allowing them to exit. All of the menu options are controlled by a number system of options stored in separate **arrays**. The user will be allowed to select from options printed out to them, these options are controlled by a **while loop**. The main menu and the "sub-menus" all have their own **while loops** to ensure the user is able to select an option. Each menu is controlled by series of **case statements** which validates the users option and performs the next action of the ap they have selected.
+<br>
+<br>
 
-Via the script, the user is immediately asked their name and that name is stored in a variable for future use when needed.
+### Feature 2 - Create Profile - *Instance Variables*
+The user will be able to create a profile of their own within the app to allow, storing their information (and future feature- quiz history) for future visits. When the user navigates to this area, they will be asked a series of questions:
+- First name
+- Last name
+- Where they are from 
+- Age
+<br>
 
-Upon entry into the app, the user will be greeted with a message and main menu, from the main menu they will be able to create their profile, load an existing profile, go to the quiz area and scores area to list their scores.
+All these details are stored in separate **instance variables**. Two of the **instance variables** are used to confirm to the user via a **printed statement** that their profile has been created.
+<br>
+<br>
 
-### Feature 2 - Link to another menu
-Within the app, a future feature is to be creating to allow the user to access their existing profile including completed quizzes. This will retrieve the data stored in a separate YAML file. This can be done by a method of its own with access to the class of the members.
+### Feature 3 - Gentle Messages - *Error Handling*
+No one's perfect, even though we may not like to admit! That is why this app helps guide the user when something is not quite right in their selection. This app will **rescue** you! Yes it's that smart! 
+<br>
 
-### Feature 2 - Create Profile
-The user will have the option to create their own profile based on a series of questions with have been encased in a method, this will help individually identify each user via the attributes that have been stored in a class
+One area where this **rescue** feature happens is when the user hasn't entered all the details required to create their profile. Looking at the below Ruby code, it's fairly easy to work out what is going on:
+<br>
+
+```rb
+    begin
+		validate_details(member_details)
+    rescue
+        puts "Please complete all details required, we'll keep them safe for you ;)"
+        return false
+    end
+```
+
+<br>
+<br>
+
 
 
 
