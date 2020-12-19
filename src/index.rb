@@ -2,11 +2,14 @@
 require "bundler"
 require "tty-prompt" 
 require "colorize"
+require "tty-font"
+require "pastel"
 
 require 'yaml'
 require_relative ("classes.rb")
 
-$prompt = TTY::Prompt.new
+
+# $prompt = TTY::Prompt.new
 
 # ACCESS CODE - END
 
@@ -20,6 +23,8 @@ end
 # COMMAND LINE ARGV END
 
 puts "Hello #{name}, you're in!! Loading a menu...!".blue
+sleep(1)
+system("clear")
 
 class InvalidMemberDetails < StandardError
 end
@@ -107,7 +112,7 @@ def capital_city_menu
 end
 
 def score_menu
-    input_options_array_quiz = ["1","2","3","4"]
+    input_options_array_score = ["1","2","3","4"]
     puts " "
     puts "You are now in the quiz menu! Please select your quiz"
     puts "Enter (1) to show your Capital Cities Quiz scores"
@@ -192,9 +197,6 @@ questions_capital_city_hard = [
 
 while true
     input_options_array = ["1","2","3","4","5"]
-    puts " "
-    sleep(0.5)
-    puts " "
     puts "Enter (1) to create a new profile"
     puts "Enter (2) to load your existing profile"
     puts "Enter (3) to go to quiz menu"
@@ -230,7 +232,7 @@ while true
                 puts "Enter (5) to Back to Main Menu"
                 input_option = gets.strip
                 if !input_options_array_quiz.include?(input_option)
-                    puts "Expecting an input of: 1,2,3 OR 4"
+                    puts "Expecting an input of: 1,2,3,4 OR 5"
                     next
                 end
                 case input_option
@@ -302,7 +304,7 @@ while true
             puts "Loading the score menu"
             sleep(1)
                 while true
-                input_options_array_quiz = ["1","2","3","4"]
+                input_options_array_score = ["1","2","3","4"]
                 puts " "
                 puts "You are now in the quiz menu! Please select your quiz"
                 puts "Enter (1) to show your Capital Cities Quiz scores"
@@ -310,8 +312,8 @@ while true
                 puts "Enter (3) to show your Geography Quiz scores"
                 puts "Press (4) to Back to Main Menu"
                 input_option = gets.strip 
-                if !input_options_array.include?(input_option)
-                    puts "Expecting an input of: 1,2,3,4 OR 5"
+                if !input_options_array_score.include?(input_option)
+                    puts "Expecting an input of: 1,2,3 OR 4"
                     next
                 end
                 case input_option
