@@ -9,7 +9,8 @@ Welcome to the READMe document that covers the Quiz Application I have created.
 - [Mike Dane - Building a Quiz | Ruby | Tutorial 32 - YouTube Tutorial](https://www.youtube.com/watch?v=kNFMNE8O8Vc)
 - [JairoAussie - Sport League Application - GitHub Repository](https://github.com/JairoAussie/sports-league)
 - [VarshaBapat - Library Application - GitHub Repository](https://github.com/VarshaBapat/library_app)
-- **Ruby Gems** - [piotrmurach](https://github.com/piotrmurach)
+- Ruby Gems - TTY Suite - [piotrmurach](https://github.com/piotrmurach)
+- Ruby Gem - Colorize - [fazibear](https://github.com/fazibear/colorize)
 <br>
 <br>
 
@@ -93,33 +94,26 @@ This application has been tested and successfully run in **WSL: Ubuntu-18.04**
 If you don't have this on your local, please ensure you have an alternative that is of similar specifications
 <br>
 
-To run the application, please type in:<br>
+To run the application, please type in the below into the Command Line:<br>
 **./run_quiz_app.sh** 
 <br>
 <br>
 
-You can chose to enter your name as well in this command however, if you don't we will ask you!
+This will run the script for this application. You can chose to enter your name as well in this command however, if you don't we will ask you!
 <br>
 
 The following **Ruby Gems** are required to run this application:
 <br>
 
+- bundler -v 2.2.1
 - tty-prompt -v 0.23.0
 - colorize -v 0.8.1
 - tty-font
 <br>
 <br>
 
+Because we like to make things easy, these Gem's are installed or validated when the script ***./run_quiz_app.sh*** is run. But hey, it's ways good to know just in case!
 
-
-	Design help documentation which includes a set of instructions which accurately describe how to use and install the application.
-
-You must include:
-- steps to install the application
-- any dependencies required by the application to operate
-- any system/hardware requirements
-
-
-		CatToday at 2:20 PM
-Give quite detailed instructions from the point of cloning the app, installing dependencies etc. I would say something like: This has only been tested on WSL in your case. Does that help?
-
+#### System Requirements 
+This application was tested on a Laptop with an *Intel Inside CORE i7 processor* <br>
+Please ensure your system is comparable (or more optimal) to this processor.
