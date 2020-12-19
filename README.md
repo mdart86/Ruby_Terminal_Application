@@ -9,6 +9,7 @@ Welcome to the READMe document that covers the Quiz Application I have created.
 - [Mike Dane - Building a Quiz | Ruby | Tutorial 32 - YouTube Tutorial](https://www.youtube.com/watch?v=kNFMNE8O8Vc)
 - [JairoAussie - Sport League Application - GitHub Repository](https://github.com/JairoAussie/sports-league)
 - [VarshaBapat - Library Application - GitHub Repository](https://github.com/VarshaBapat/library_app)
+- **Ruby Gems** - [piotrmurach](https://github.com/piotrmurach)
 <br>
 <br>
 
@@ -60,7 +61,7 @@ All these details are stored in separate **instance variables**. Two of the **in
 <br>
 
 ### Feature 3 - Gentle Messages - *Error Handling*
-No one's perfect, even though we may not like to admit! That is why this app helps guide the user when something is not quite right in their selection. This app will **rescue** you! Yes it's that smart! 
+No one's perfect, even though we may not like to admit it! That is why this app helps guide the user when something is not quite right in their selection, it will **rescue** you! Yes, it's that smart! 
 <br>
 
 One area where this **rescue** feature happens is when the user hasn't entered all the details required to create their profile. Looking at the below Ruby code, it's fairly easy to work out what is going on:
@@ -75,10 +76,50 @@ One area where this **rescue** feature happens is when the user hasn't entered a
     end
 ```
 
+Whilst numbers were chosen as the easiest way to select a menu option, if the user doesn't select the correct input, they will be *gently* told their selection is not valid, this is so our app users aren't left in the lerch wondering what has happened.
+
+```rb
+    if !input_options_array.include?(input_option)
+        puts "Expecting an input of: 1, 2, 3, 4 OR 5"
+    next
+```
+
+<br>
+<br>
+
+
+## R10 - Installation and Setup
+This application has been tested and successfully run in **WSL: Ubuntu-18.04**
+If you don't have this on your local, please ensure you have an alternative that is of similar specifications
+<br>
+
+To run the application, please type in:<br>
+**./run_quiz_app.sh** 
+<br>
+<br>
+
+You can chose to enter your name as well in this command however, if you don't we will ask you!
+<br>
+
+The following **Ruby Gems** are required to run this application:
+<br>
+
+- tty-prompt -v 0.23.0
+- colorize -v 0.8.1
+- tty-font
 <br>
 <br>
 
 
 
+	Design help documentation which includes a set of instructions which accurately describe how to use and install the application.
 
+You must include:
+- steps to install the application
+- any dependencies required by the application to operate
+- any system/hardware requirements
+
+
+		CatToday at 2:20 PM
+Give quite detailed instructions from the point of cloning the app, installing dependencies etc. I would say something like: This has only been tested on WSL in your case. Does that help?
 

@@ -148,6 +148,8 @@ questions_capital_city_hard = [
 ]
 # QUESTIONS ARRAY WITH OBJECTS FOR HARD - END
 # CAPITAL CITY HARD QUESTIONS AND ANSWERS - END
+
+# QUIZ METHOD - START
     def run_test(questions_capital)
         answer = ""
         score = 0
@@ -167,6 +169,11 @@ questions_capital_city_hard = [
         end
         puts "You got" " " + score.to_s + "/" + questions_capital.length().to_s
     end
+# QUIZ METHOD - END
+    
+font = TTY::Font.new(:doom)
+
+puts font.write("QUIZ APP", letter_spacing: 3)
 
 while true
     input_options_array = ["1","2","3","4","5"]
@@ -198,6 +205,7 @@ while true
             system("clear")
             while true
                 input_options_array_quiz = ["1","2","3","4", "5"]
+                puts font.write("QUIZ APP")
                 puts "*** QUIZ MENU ***"
                 puts "Enter (1) To Look at the Capital City Quizzes"
                 puts "Enter (2) To Look at the Countries Quizzes"
