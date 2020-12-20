@@ -44,9 +44,10 @@ def write_to_file(member_details)
 end
 
 def get_details
+    # controlled by a member class, to gather details of the user
     member_details = Hash.new{0}
 	print "Please retype your first name "
-	member_details[:first_name] = gets.strip
+	member_details[:first_name] = gets.strip 
     print "What is your last name? "
     member_details[:last_name] = gets.strip    
     print "Where are you from? "
@@ -57,21 +58,25 @@ def get_details
 end
 
 def validate_details(member_details)
+    # Member details are validated by this function
 	raise InvalidMemberDetails if(member_details[:first_name].length == 0 || member_details[:last_name].length == 0 || member_details[:home_city].length == 0 || member_details[:age].length == 0)
 	return true
 end
 
 def create_member
+    # this method creates the member based on what details are entered
     member_details = get_details
+    # error handling to ensure member details provided match what is required, if not the user is advised
     begin
 		validate_details(member_details)
     rescue
-        puts "Please complete all details required, we'll keep them safe for you ;)"
+        puts "Please complete all details required, we'll keep them safe for you ;)".colorize(:red)
+        get_details
         return false
 	end
     member = Member.new(member_details)
     puts member
-    write_to_file(member_details)
+    write_to_file(member_details) # member details written to yaml file
 end
 # MEMBER DETAILS METHODS - END
 

@@ -103,9 +103,19 @@ Errors will be handled by either a rescue block or a printed statement to the us
 <br>
 <br>
 
-## R8 - User Experience
+## R8 - Diagram of Application
+Please see the docs folder, a diagram labelled **MichaelDart_T1A3-Diagram** has been stored here.
+<br>
 
-[Lucidchart](https://lucid.app/lucidchart/c6829f96-a610-4fba-a732-6aea82cdd9cd/edit?page=0_0#?folder_id=home&browser=icon)
+Credits are given to Lucidchart is given for the creation of this diagram
+[Lucidchart](https://www.lucidchart.com/)
+<br>
+<br>
+
+## R9 - Implementation Plan
+To see the implementation plan, this can be accessed via [Trello](https://trello.com/b/iocn7nyt/t1a3-terminal-application)
+<br>
+<br>
 
 ## R10 - Installation and Setup
 ### Ruby Version
@@ -113,10 +123,12 @@ The Ruby version - **ruby 2.7.1p83** - was used to develop and test this applica
 To install Ruby, please go to the [Download Ruby](https://www.ruby-lang.org/en/downloads/) page to install Ruby based on your device
 <br>
 
+### Application Used
 This application has been tested and successfully run in **WSL: Ubuntu-18.04**
 If you don't have this on your local, please ensure you have an alternative that is of similar specifications
 <br>
 
+### How to run
 To run the application, please type in the below into the Command Line:<br>
 **./run_quiz_app.sh** 
 <br>
@@ -125,6 +137,7 @@ To run the application, please type in the below into the Command Line:<br>
 This will run the script for this application. You can chose to enter your name as well in this command however, if you don't we will ask you!
 <br>
 
+### Ruby Gems
 The following **Ruby Gems** are required to run this application:
 <br>
 
@@ -133,7 +146,6 @@ The following **Ruby Gems** are required to run this application:
 - colorize -v 0.8.1
 - tty-font
 - lolize
-
 <br>
 <br>
 
@@ -142,3 +154,9 @@ Because we like to make things easy, these Gem's are installed or validated when
 #### System Requirements 
 This application was tested on a Laptop with an *Intel Inside CORE i7 processor* <br>
 Please ensure your system is comparable (or more optimal) to this processor.
+
+## FUTURE DEVELOPMENTS
+Updates to the app include:
+- Usage of TTY Prompt Ruby Gem based on a multi-level menu system for improved user functionality
+- More content - currently, only one quiz is provided however, all quizzes would follow the same structure
+- Update of scores menu to display the scores from quizzes taken - this would involve an update to the questions and answers area into an array of hashes (possible thoughts)

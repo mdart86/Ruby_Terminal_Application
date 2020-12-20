@@ -9,7 +9,7 @@ class Member
         @age = member_details[:age]
         @@member_id += 1
     end
-    
+
     def to_s
         return "Welcome to the Quiz app #{@first_name} from #{@home_city}. Your unique member number is #{@@member_id}. Keep this handy, you'll need it when you come back!"
     end
