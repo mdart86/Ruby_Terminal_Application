@@ -157,6 +157,6 @@ Please ensure your system is comparable (or more optimal) to this processor.
 
 ## FUTURE DEVELOPMENTS
 Updates to the app include:
-- Usage of TTY Prompt Ruby Gem based on a multi-level menu system for improved user functionality
+- Usage of TTY Prompt Ruby Gem based on a multi-level menu system for improved user functionality. Test is currently under way, see **test.rb** file to see, this file is used as an external file to test ideas
 - More content - currently, only one quiz is provided however, all quizzes would follow the same structure
 - Update of scores menu to display the scores from quizzes taken - this would involve an update to the questions and answers area into an array of hashes (possible thoughts)
