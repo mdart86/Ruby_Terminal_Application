@@ -93,6 +93,11 @@ Whilst numbers were chosen as the easiest way to select a menu option, if the us
 
 
 ## R10 - Installation and Setup
+### Ruby Version
+The Ruby version - **ruby 2.7.1p83** - was used to develop and test this application.
+To install Ruby, please go to the [Download Ruby](https://www.ruby-lang.org/en/downloads/) page to install Ruby based on your device
+<br>
+
 This application has been tested and successfully run in **WSL: Ubuntu-18.04**
 If you don't have this on your local, please ensure you have an alternative that is of similar specifications
 <br>
