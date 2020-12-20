@@ -198,7 +198,8 @@ while true
             puts "#{name}, please answer a few questions for us to get to know you better ;)!".colorize(:blue)
             create_member     
         when "2"
-            # Invoke a method called existing_member
+            puts "PLEASE NOTE THIS AREA IS UNDERCONSTRUCTION".upcase.colorize(:red)
+            sleep(1.0)
             puts "Loading your profile..."
             # existing_member
         when "3"
@@ -302,7 +303,7 @@ while true
             system("clear")
                 while true
                 input_options_array_score = ["1","2","3","4"]
-                puts "PLEASE NOTE THIS MENU IS UNDERCONSTRUCTION".upcase.colorize(:red)
+                puts "PLEASE NOTE THIS AREA IS UNDERCONSTRUCTION".upcase.colorize(:red)
                 puts "Enter (1) to show your Capital Cities Quiz scores"
                 puts "Enter (2) to show your Countries Quiz scores"
                 puts "Enter (3) to show your Geography Quiz scores"
