@@ -7,4 +7,4 @@ gem install colorize -v 0.8.1
 gem install tty-font
 gem install lolize
 bundle init
-ruby ./src/index.rb 
+ruby index.rb 
