@@ -9,8 +9,9 @@ Welcome to the READMe document that covers the Quiz Application I have created.
 - [Mike Dane - Building a Quiz | Ruby | Tutorial 32 - YouTube Tutorial](https://www.youtube.com/watch?v=kNFMNE8O8Vc)
 - [JairoAussie - Sport League Application - GitHub Repository](https://github.com/JairoAussie/sports-league)
 - [VarshaBapat - Library Application - GitHub Repository](https://github.com/VarshaBapat/library_app)
-- Ruby Gems - TTY Suite - [piotrmurach](https://github.com/piotrmurach)
-- Ruby Gem - Colorize - [fazibear](https://github.com/fazibear/colorize)
+- Ruby Gem - [TTY Suite- Git Hub Repository](https://github.com/piotrmurach)
+- Ruby Gem - [Colorize - Git Hub Repository](https://github.com/fazibear/colorize)
+- Ruby Gem - [Lolize Git Hub Repository](https://github.com/miaout17/lolize)
 <br>
 <br>
 
@@ -90,7 +91,21 @@ Whilst numbers were chosen as the easiest way to select a menu option, if the us
 <br>
 
 ## R7 - User Experience
+### How will the user know how to interact with / use each feature
+The user will know how to use each feature of the program by a series of short, easy to read statements and prompts
 
+### User Interaction with / Use each feature
+Each menu is section with the help of TTY Font *(see references above)* to identify to the user where they are in the program. The user will interact with features in the app either by a menu option (using numbers) or a mutiple choice questionaire (using letters). 
+<br>
+
+### Error Handling and Display to User
+Errors will be handled by either a rescue block or a printed statement to the user. Depending on what error is triggered will depend on what method is used. The user will see either method easily with the help of Ruby Gem, Colorize *(see references above)* via a Red printed statement
+<br>
+<br>
+
+## R8 - User Experience
+
+[Lucidchart](https://lucid.app/lucidchart/c6829f96-a610-4fba-a732-6aea82cdd9cd/edit?page=0_0#?folder_id=home&browser=icon)
 
 ## R10 - Installation and Setup
 ### Ruby Version
@@ -117,6 +132,8 @@ The following **Ruby Gems** are required to run this application:
 - tty-prompt -v 0.23.0
 - colorize -v 0.8.1
 - tty-font
+- lolize
+
 <br>
 <br>
 

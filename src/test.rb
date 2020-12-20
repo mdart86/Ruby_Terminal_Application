@@ -10,7 +10,7 @@ $prompt = TTY::Prompt.new
 def select_option
     puts "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS" # used to identify menu option easily
     return $prompt.select("Choose from one of the following options", 
-    ["Create a new profile", "Load an existing profile", "Go to Quiz Menu", "Show your Scores", "Exit"])
+    ["Create a new profile", "Load an existing profile", "Go to Quiz Menu", "Show your Scores", "Exit"])      
 end #end of method
 
 def quiz_menu_select

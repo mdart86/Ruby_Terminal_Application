@@ -3,12 +3,14 @@ require "bundler"
 require "tty-prompt" 
 require "colorize"
 require "tty-font"
+require 'lolize'
 
 require 'yaml'
 require_relative ("classes.rb")
 
-
-# $prompt = TTY::Prompt.new
+$prompt = TTY::Prompt.new
+colorizer = Lolize::Colorizer.new
+font = TTY::Font.new(:doom)
 
 # ACCESS CODE - END
 
@@ -21,7 +23,7 @@ else
 end
 # COMMAND LINE ARGV END
 
-puts "Hello #{name}, you're in!! Loading a menu...!".blue
+puts "Hello #{name}, you're in!! Loading a menu...!".colorize(:blue)
 sleep(1)
 system("clear")
 
@@ -33,23 +35,23 @@ def write_to_file(member_details)
     begin
         file = File.open("./data/members.yml","a+"){ |file| file.write(member_details.to_yaml)}
         if file
-            puts "Welcome, your details have been saved for next time"
+            puts "Welcome, your details have been saved for next time".colorize(:green)
         end
     rescue
-        puts "Couldn't locate member"
-        puts "Could not save member details to the file"
+        puts "Couldn't locate member".colorize(:red)
+        puts "Could not save member details to the file".colorize(:red)
     end
 end
 
 def get_details
     member_details = Hash.new{0}
-	print "Please retype your first name: "
+	print "Please retype your first name "
 	member_details[:first_name] = gets.strip
-    print "What is your last name: "
+    print "What is your last name? "
     member_details[:last_name] = gets.strip    
-    print "Where are you from?: "
+    print "Where are you from? "
     member_details[:home_city] = gets.strip
-    print "What is your age?: "
+    print "How young are you? "
     member_details[:age] = gets.strip
     return member_details
 end
@@ -171,105 +173,105 @@ questions_capital_city_hard = [
     end
 # QUIZ METHOD - END
     
-font = TTY::Font.new(:doom)
 
 puts font.write("QUIZ APP", letter_spacing: 3)
 
 while true
     input_options_array = ["1","2","3","4","5"]
-    puts "Enter (1) to create a new profile"
-    puts "Enter (2) to load your existing profile"
-    puts "Enter (3) to go to quiz menu"
-    puts "Press (4) to show your answers and score"
-    puts "Press (5) to exit"
-    print "Please choose from one of the above options: "
+    puts "Enter (1) to create a new profile".colorize(:red)
+    puts "Enter (2) to load your existing profile".colorize(:light_red)
+    puts "Enter (3) to go to quiz menu".colorize(:yellow)
+    puts "Press (4) to show your answers and score".colorize(:blue)
+    puts "Press (5) to exit".colorize(:magenta)
+    print "Please choose from one of the above options: ".colorize(:green)
     input_option = gets.strip 
     # This is the simplest form of error handling using an if statement where we are not explicitly using any begin-rescue-end block
     if !input_options_array.include?(input_option)
-        puts "Expecting an input of: 1, 2, 3, 4 OR 5"
+        puts "Expecting an input of: 1, 2, 3, 4 OR 5".colorize(:red)
         next
     end
     case input_option
         when "1"
-            puts "Great, #{name}! Let's get started and create a new profile for you!"
             sleep(1)
+            system("clear")
+            puts font.write("TIME TO CREATE").colorize(:yellow)
+            puts "#{name}, please answer a few questions for us to get to know you better ;)!".colorize(:blue)
             create_member     
         when "2"
             # Invoke a method called existing_member
             puts "Loading your profile..."
             # existing_member
         when "3"
-            puts "Yay #{name}! You're going to the quiz menu"
+            puts "Yay #{name}! You're going to the quiz menu".upcase.colorize(:red)
             sleep(1)
             system("clear")
             while true
                 input_options_array_quiz = ["1","2","3","4", "5"]
-                puts font.write("QUIZ MENU")
-                puts "Enter (1) To Look at the Capital City Quizzes"
-                puts "Enter (2) To Look at the Countries Quizzes"
-                puts "Enter (3) To Look at the Geography Quizzes"
-                puts "Enter (4) to go to the Scores Menu"
-                puts "Enter (5) to Back to Main Menu"
-                print "You are now in the quiz menu! Please select your quiz category: "
+                puts font.write("QUIZ MENU").colorize(:magenta)
+                puts "Enter (1) To Look at the Capital City Quizzes".colorize(:red)
+                puts "Enter (2) To Look at the Countries Quizzes".colorize(:light_red)
+                puts "Enter (3) To Look at the Geography Quizzes".colorize(:yellow)
+                puts "Enter (4) to go to the Scores Menu".colorize(:blue)
+                puts "Enter (5) to Back to Main Menu".colorize(:magenta)
+                print "You are now in the quiz menu! Please select your quiz category: ".colorize(:green)
                 input_option = gets.strip
                 if !input_options_array_quiz.include?(input_option)
-                    puts "Expecting an input of: 1, 2, 3, 4 OR 5"
+                    puts "Expecting an input of: 1, 2, 3, 4 OR 5".colorize(:red)
                     next
                 end
                 case input_option
                 when "1"
-                    puts "Loading the Capital City Quizzes, we will be right with you #{name}"
+                    puts "Loading the Capital City Quizzes, we will be right with you #{name}".upcase.colorize(:red)
                     sleep(1)
                     system("clear")
                         while true
                             input_options_array_capital_city = ["1","2","3","4"]
-                            puts "*** CAPITAL CITY QUIZ MENU ***"
-                            puts "Enter (1) to try the EASY quiz"
-                            puts "Enter (2) to try the MEDIUM quiz"
-                            puts "Enter (3) to try the HARD quiz"
-                            puts "Press (4) to go back to the Quiz Menu"
-                            print "Please select the quiz level you want to take: "
+                            puts font.write("CAPITAL CITY QUIZZES").colorize(:magenta)
+                            puts "Enter (1) to try the EASY quiz".colorize(:red)
+                            puts "Enter (2) to try the MEDIUM quiz".colorize(:light_red)
+                            puts "Enter (3) to try the HARD quiz".colorize(:yellow)
+                            puts "Press (4) to go back to the Quiz Menu".colorize(:magenta)
+                            print "Please select the quiz level you want to take: ".colorize(:green)
                             input_option = gets.strip
                             if !input_options_array_capital_city.include?(input_option)
-                                puts "Expecting an input of: 1, 2, 3 OR 4"
+                                puts "Expecting an input of: 1, 2, 3 OR 4".colorize(:red)
                                 next
                             end
                         case input_option
                         when "1"
-                            puts "Loading the EASY capital city quiz! Sometimes, #{name} it's great to start at the easiest level!"
+                            puts "Loading the EASY capital city quiz! Sometimes, #{name} it's great to start at the easiest level!".upcase.colorize(:red)
                             run_test(questions_capital_city_easy)
                             sleep(0.5)
-                            puts "Saving your score, check out the scores menu to see"
+                            puts "Saving your score, check out the scores menu to see".upcase.colorize(:red)
                             sleep(1)
                             puts " "
-                            puts "Returning back to the Capital City Quiz Menu now #{name}! One moment..."
+                            puts "Returning back to the Capital City Quiz Menu now #{name}! One moment...".upcase.colorize(:red)
                             sleep(1)
                             system("clear")
                         when "2"
-                            puts "Time try a more callenging quiz #{name}! Loading the MEDIUM capital city quiz!"
+                            puts "Time try a more callenging quiz #{name}! Loading the MEDIUM capital city quiz!".upcase.colorize(:red)
                             run_test(questions_capital_city_medium)
                             sleep(0.5)
-                            puts "Saving your score, check out the scores menu to see"
+                            puts "Saving your score, check out the scores menu to see".upcase.colorize(:red)
                             sleep(1)
                             puts " "
-                            puts "Returning back to the Capital City Quiz Menu now #{name}! One moment..."
+                            puts "Returning back to the Capital City Quiz Menu now #{name}! One moment...".upcase.colorize(:red)
                             sleep(1)
                             system("clear")
                         when "3"
-                            puts "Alright! Let's go for it! Good luck #{name}! Loading the HARD capital city quiz!"
+                            puts "Alright! Let's go for it! Good luck #{name}! Loading the HARD capital city quiz!".upcase.colorize(:red)
                             run_test(questions_capital_city_hard)
                             sleep(0.5)
                             puts "Saving your score, check out the scores menu to see"
                             sleep(1)
                             puts " "
-                            puts "Returning back to the Capital City Quiz Menu now #{name}! One moment..."
+                            puts "Returning back to the Capital City Quiz Menu now #{name}! One moment...".upcase.colorize(:red)
                             sleep(1)
                             system("clear")
                         when "4"
-                            puts "Well done for trying out these quizzes #{name}! Returning to the quiz menu"
+                            puts "Well done for trying out these quizzes #{name}! Returning to the quiz menu".upcase.colorize(:red)
                             sleep(1)
                             system("clear")
-                            puts "*** QUIZ MENU ***"
                             quiz_menu
                         break
                         end # end of case statement
@@ -281,32 +283,34 @@ while true
                     puts "Undefined option"   
                     # add code to option 
                 when "4"
-                    puts "Going to the scores menu"
+                    puts "Going to the scores menu".upcase.colorize(:red)
                     sleep(1)
                     system("clear")
                     score_menu
                 when "5"
-                    puts "Going back to main menu"
+                    puts "Going back to main menu".upcase.colorize(:red)
                     sleep(1)
                     system("clear")
+                    puts font.write("MAIN MENU").colorize(:magenta)
                     main_menu
                 break
                 end # end of case statement
             end # End of while loop
         when "4"
-            puts "Loading the score menu"
+            puts "Loading the score menu".upcase.colorize(:red)
             sleep(1)
             system("clear")
                 while true
                 input_options_array_score = ["1","2","3","4"]
-                puts "So #{name}, you've completed some quizzes, why don't you see how well you've done!"
+                puts "PLEASE NOTE THIS MENU IS UNDERCONSTRUCTION".upcase.colorize(:red)
                 puts "Enter (1) to show your Capital Cities Quiz scores"
                 puts "Enter (2) to show your Countries Quiz scores"
                 puts "Enter (3) to show your Geography Quiz scores"
                 puts "Press (4) to Back to Main Menu"
+                print "So #{name}, you've completed some quizzes, why don't you see how well you've done! ".colorize(:green)
                 input_option = gets.strip 
                 if !input_options_array_score.include?(input_option)
-                    puts "Expecting an input of: 1,2,3 OR 4"
+                    puts "Expecting an input of: 1,2,3 OR 4".colorize(:red)
                     next
                 end
                 case input_option
@@ -330,10 +334,12 @@ while true
                 end # end of case statement
             end # End of while loop
         when "5"
-            puts "Exiting from the Quiz App, Goodbye! Please come back!!".yellow
+            colorizer.write "Exiting from the Quiz App, Goodbye! Please come back!!\n"
+            sleep(1)
+            system("clear")
             break
         else
-            puts "Please choose from the options 1,2,3,4 OR 5"
+            puts "Please choose from the options 1,2,3,4 OR 5".colorize(:red)
             next
     end # end of case statement
 end # End of while loop

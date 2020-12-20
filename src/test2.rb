@@ -1,30 +1,23 @@
-# # capital_city_easy [
-# #     {Australia: "Canberra",
-# #     France: "Paris",
-# #     Japan: "Tokyo",
-# #     USA: "Washington D.C.",
-# #     New_Zealand: "Wellington"
-# #     }
-# # ]
+require "bundler"
+require "tty-prompt" 
+require "colorize"
 
-# puts "What is the capital city of Australia?"
-# puts "(A) - Sydney"
-# puts "(B) - Canberra"
-# puts "(C) - Melbourne"
-# print "What do you think it is? "
+require 'yaml'
+require_relative ("classes.rb")
 
-# answer = gets.chomp.upcase
+$prompt = TTY::Prompt.new
 
-# if  answer == "A"
-#     puts "Unfortunately, that is that is not correct!"
-# elsif  answer == "B"
-#     score += 1 
-#     puts "Correct! Did you know it used to be Melbourne?!"
-# elsif answer == "C"
-#     puts "Unfortunately, that is that is not correct!"
-# else
-#     print "Please type A, B or C: "
-# end
+def select_option
+    return $prompt.select("Choose from one of the following options", 
+    ["Create a new profile", "Load an existing profile", "Go to Quiz Menu", "Show your Scores", "Exit"])      
+end #end of method
 
-# # add score to array 
-# # score_cc_easy = []
+def quiz_menu_select
+    return $prompt.select("Choose from one of the quiz categories", 
+    ["Capital Cities", "Countries", "Geography", "Back to Main Menu"])
+end #end of method
+
+def city_menu_select
+    return $prompt.select("Choose from one of quiz levels", 
+    ["Easy", "Medium", "Hard", "Back to the Quiz Menu"]) 
+end
